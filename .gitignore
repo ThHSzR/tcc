@@ -1,0 +1,3 @@
+/secrets/
+/zabbix-docker/
+*.log

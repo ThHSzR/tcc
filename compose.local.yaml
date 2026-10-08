@@ -1,0 +1,22 @@
+services:
+  zabbix-server:
+    ports: !override
+      - name: zabbix-trapper-local
+        target: 10051
+        published: "10051"
+        host_ip: "127.0.0.1"
+        protocol: tcp
+
+  zabbix-web-nginx-pgsql:
+    environment:
+      PHP_TZ: America/Sao_Paulo
+    ports: !override
+      - name: web-http-local
+        target: 8080
+        published: "8080"
+        host_ip: "127.0.0.1"
+        protocol: tcp
+
+secrets:
+  POSTGRES_PASSWORD:
+    file: ../secrets/postgres-password
